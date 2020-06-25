@@ -8,7 +8,7 @@ class OpinionsController < ApplicationController
     @thought.save
     redirect_to opinions_path
   end
-  
+
   def index
     @thoughts = Opinion.all
   end

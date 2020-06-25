@@ -1,6 +1,5 @@
 class FollowingsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     @follow = current_user.follows.build(followed_id: params[:id])
