@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @new_user = User.build(user_params)
-    @new_user.save
+    @user = User.build(user_params)
+    @user.save
     redirect_to root_path
   end
 
