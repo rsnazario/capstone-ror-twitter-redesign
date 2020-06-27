@@ -2,11 +2,10 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    redirect_to opinions_path
-    # return unless (userx = User.find_by(username: params[:username]))
+    return unless (userx = User.find_by(username: params[:username]))
 
-    # cookies[:current_user_id] = userx.id
-    # redirect_to user_path(cookies[:current_user_id])
+    cookies[:current_user_id] = userx.id
+    redirect_to opinions_path
   end
 
   def destroy
