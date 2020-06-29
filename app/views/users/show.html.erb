@@ -2,31 +2,36 @@
   <div class="row">
 
     <div class="col-2 min-vh-100 h-100 bg-info">
-      <p> Welcome <%= current_user.fullname %> </p>
+      <i class="fas fa-user fa-4x mt-2 ml-2 float-left"></i>
+      <h4 class="float-right mt-4 mr-5"> <%= current_user.fullname %> </h4>
+      <%= link_to 'home', opinions_path %>
     </div>
 
     <div class="col">
       <div class="bg-warning ml-n3" style="height: 50px;">
         <h1>This is nav bar</h1>
       </div>
+
       <div class="row">
         <div class="col-9 bg-danger">
           <h3>This will be opinions section</h3>
         </div>
+
         <div class="col bg-success">
           <h3>This will be who-to-follow section</h3>
 
           <br><br>
           <ul class="list-unstyled h5">
             <% @followed_by.each do |user| %>
-              <li> <%= link_to user.username, user_path(user)%> 
-              
-              <%= link_to raw('<i class="fas fa-plus"></i>'), followings_path(:follower_id => @user.id, :followed_id => user.id), :method => :post  %>
+              <li> <%= link_to user.username, user_path(user) %> 
+              <% unless current_user.ppl_following.find_by(id: user.id) %>
+                <%= link_to raw('<i class="fas fa-plus"></i>'), followings_path(:follower_id => @user.id, :followed_id => user.id), :method => :post %>
+              <% end %>
               </li> 
             <% end %>
           </ul>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>

@@ -16,3 +16,16 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.bg-sidebar {
+  background-color: #213246;
+}
+
+.text-sidebar {
+  color: #62778a;
+}
+
+.hover-info:hover {
+  background-color: rgb(23, 162, 184);
+  color: white;
+}

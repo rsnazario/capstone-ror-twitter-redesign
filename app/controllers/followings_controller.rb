@@ -3,8 +3,6 @@ class FollowingsController < ApplicationController
 
   def create
     @follow = Following.create(friendship_params)
-    # @follow = current_user.follows.build(followed_id: params[:id])
-    # @follow.save
     redirect_back(fallback_location: root_path)
   end
 
