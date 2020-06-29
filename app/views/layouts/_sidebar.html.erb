@@ -1,0 +1,35 @@
+<div class="col-2 min-vh-100 h-100 bg-sidebar w-100 pr-0">
+
+<div class="d-flex border-bottom border-dark w-100 text-sidebar pb-3 pt-2">
+  <i class="fas fa-user fa-4x m-2"></i>
+  <h4 class="mt-4 ml-3 mr-3"> <%= current_user.fullname %> </h4>
+</div>
+
+<div class="statistics text-white d-flex w-100 justify-content-center align-items-center border-bottom border-dark pt-2 pb-2">
+  <div class="following d-flex flex-column align-items-center pr-3 border-right border-dark text-sidebar">
+    <h3> <%= current_user.follows.count %> </h3>
+    <h5> Following </h5>
+  </div>
+  <div class="followers d-flex flex-column align-items-center pl-3 text-sidebar" >
+    <h3> <%= current_user.followers.count %> </h3>
+    <h5> Followers </h5>
+  </div>
+</div>
+
+<div class="links">
+  <div class="home d-flex text-sidebar m-2 pt-1 hover-info border-bottom border-dark">
+    <i class="fas fa-home fa-2x"></i>
+    <h2> &nbsp Home </h2> 
+  </div>
+
+  <div class="profile d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
+    <i class="fas fa-user fa-2x ml-1"></i>
+    <h2> &nbsp Profile </h2> 
+  </div>
+
+  <div class="logout d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
+    <i class="fas fa-sign-out-alt fa-2x ml-1"></i>
+    <h2> &nbsp Logout </h2>
+  </div>
+</div>
+</div>
