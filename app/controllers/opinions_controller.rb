@@ -11,11 +11,16 @@ class OpinionsController < ApplicationController
 
   def index
     @thoughts = Opinion.all
+    timeline_posts
   end
 
   private
 
   def opinions_params
     params.permit(:text)
+  end
+
+  def timeline_posts
+    @timeline_posts ||= current_user.friends_and_own_posts
   end
 end
