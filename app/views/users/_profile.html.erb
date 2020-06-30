@@ -36,9 +36,9 @@
               <h4 class="mb-0"> <%= link_to user.username, user_path(user) %> </h4>
               <small class="text-sidebar">@<%= user.username %></small>
             </div>
-            <div>
-              <% unless current_user.ppl_following.find_by(id: user.id) or current_user %>
-                <%= link_to raw('<i class="fas fa-plus"></i>'), followings_path(:follower_id => @user.id, :followed_id => user.id), :method => :post %>
+            <div class="ml-5">
+              <% unless current_user.ppl_following.find_by(id: user.id) or user == current_user %>
+                <%= link_to raw('<i class="fas fa-plus"></i>'), followings_path(:follower_id => current_user.id, :followed_id => user.id), :method => :post %>
               <% end %>
             </div>
           </div>

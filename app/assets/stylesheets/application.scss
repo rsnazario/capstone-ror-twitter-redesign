@@ -19,6 +19,10 @@
  
  @import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap");
 
+* {
+  text-decoration: none !important;
+}
+
  body {
    font-family: "Poppins", sans-serif;
    background-color: rgba(211, 211, 211, 0.2);;
