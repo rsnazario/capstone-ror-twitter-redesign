@@ -7,25 +7,14 @@
       <%= render 'layouts/navbar' %>
 
       <div class="row">
-        <div class="col-9 bg-danger">
-          <h3>This will be opinions section</h3>
+        <div class="col-9 bg-white">
+          <h3>This will be profile tweets + photo </h3>
         </div>
 
-        <div class="col bg-success">
-          <h3>This will be who-to-follow section</h3>
-
-          <br><br>
-          <ul class="list-unstyled h5">
-            <% @followed_by.each do |user| %>
-              <li> <%= link_to user.username, user_path(user) %> 
-              <% unless current_user.ppl_following.find_by(id: user.id) %>
-                <%= link_to raw('<i class="fas fa-plus"></i>'), followings_path(:follower_id => @user.id, :followed_id => user.id), :method => :post %>
-              <% end %>
-              </li> 
-            <% end %>
-          </ul>
+        <div class="col">
+          <%= render 'profile' %>
+        </div>
       </div>
-
     </div>
   </div>
 </div>
