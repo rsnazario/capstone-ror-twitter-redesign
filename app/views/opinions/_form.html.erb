@@ -1,0 +1,6 @@
+<div class="bg-white mt-5 mr-3 ml-3 p-3">
+  <h5 class="text-titles font-weight-bold"> POST SOMETHING </h5>
+  <%= form_with(model: @opinion) do |form| %>
+    <%= form.text_field :text, class:"w-100", placeholder: "Create an Opinion " %> <br/>
+  <% end %>
+</div>
