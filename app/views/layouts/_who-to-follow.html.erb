@@ -9,9 +9,16 @@
         <div class="d-flex w-100 text-sidebar pb-3 pt-2">
           <i class="fas fa-user fa-3x m-2"></i>
           <div class="post-content ml-3 mt-2">
-            <li> 
-              <%=link_to user.fullname, user_path(user)%> <br>
+            <li class="d-flex flex-row"> 
+              <div class="user-info">
+              <%=link_to user.fullname, user_path(user)%><br>
               <small class="text-sidebar">@<%= user.username %></small>
+              </div>
+              <div class="ml-3">
+              <% unless current_user.ppl_following.find_by(id: user.id) or user == current_user %>
+                <%= link_to raw('<i class="fas fa-plus"></i>'), followings_path(:follower_id => current_user.id, :followed_id => user.id), :method => :post %>
+              <% end %>
+            </div>
             </li>
           </div>
         </div>
