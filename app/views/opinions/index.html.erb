@@ -8,25 +8,16 @@
 
       <div class="row">
         <div class="col-9">
-          <div>
+          <div class="new-tweet">
             <%= render 'form' %>
           </div>
 
-          <div>
+          <div class="timeline-tweets">
             <%= render 'timeline' %>
           </div>
         </div>
-        <div class="col bg-success">
-          <h3>This will be who-to-follow section</h3>
-          <br><br>
-
-          <ul class="list-unstyled h5">
-            <% (User.all - current_user.ppl_following).each do |user| %>
-              <% unless user == current_user %>
-                <li> <%=link_to user.username, user_path(user)%> </li> <br>
-              <% end %>
-            <% end %>
-          </ul>
+        <div class="col border-left border-grey ">
+          <%= render 'layouts/who-to-follow' %>
       </div>
     </div>
   </div>

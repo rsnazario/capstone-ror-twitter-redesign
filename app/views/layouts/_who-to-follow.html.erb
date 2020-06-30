@@ -1,0 +1,9 @@
+<h3>This will be who-to-follow section</h3> <br><br>
+
+<ul class="list-unstyled h5">
+  <% (User.all - current_user.ppl_following).each do |user| %>
+    <% unless user == current_user %>
+      <li> <%=link_to user.username, user_path(user)%> </li> <br>
+    <% end %>
+  <% end %>
+</ul>
