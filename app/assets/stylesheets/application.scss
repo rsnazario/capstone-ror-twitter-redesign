@@ -14,10 +14,9 @@
  *= require_self
  */
 
- // Custom bootstrap variables must be set or imported *before* bootstrap.
+// Custom bootstrap variables must be set or imported *before* bootstrap.
 
 @import "bootstrap";
- 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap");
 
 * {
@@ -26,8 +25,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: rgba(211, 211, 211, 0.2);;
- }
+  background-color: rgba(211, 211, 211, 0.2);
+}
 
 .text-titles {
   color: #62778a;
