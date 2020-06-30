@@ -23,5 +23,4 @@ class OpinionsController < ApplicationController
   def timeline_posts
     @timeline_posts ||= current_user.friends_and_own_posts
   end
-
 end
