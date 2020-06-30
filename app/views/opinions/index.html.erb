@@ -1,0 +1,24 @@
+<div class="overflow-hidden">
+  <div class="row">
+
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col">
+      <%= render 'layouts/navbar' %>
+
+      <div class="row">
+        <div class="col-9">
+          <div class="new-tweet">
+            <%= render 'form' %>
+          </div>
+
+          <div class="timeline-tweets">
+            <%= render 'timeline' %>
+          </div>
+        </div>
+
+        <%= render 'layouts/who-to-follow' %>
+      </div>
+    </div>
+  </div>
+</div>

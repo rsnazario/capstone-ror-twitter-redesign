@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     return unless (userx = User.find_by(username: params[:username]))
 
     cookies[:current_user_id] = userx.id
-    redirect_to user_path(cookies[:current_user_id])
+    redirect_to opinions_path
   end
 
   def destroy
