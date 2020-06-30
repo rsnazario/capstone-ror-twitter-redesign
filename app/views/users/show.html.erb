@@ -1,16 +1,10 @@
 <div class="overflow-hidden">
   <div class="row">
 
-    <div class="col-2 min-vh-100 h-100 bg-info">
-      <i class="fas fa-user fa-4x mt-2 ml-2 float-left"></i>
-      <h4 class="float-right mt-4 mr-5"> <%= current_user.fullname %> </h4>
-      <%= link_to 'home', opinions_path %>
-    </div>
+    <%= render 'layouts/sidebar' %>
 
     <div class="col">
-      <div class="bg-warning ml-n3" style="height: 50px;">
-        <h1>This is nav bar</h1>
-      </div>
+      <%= render 'layouts/navbar' %>
 
       <div class="row">
         <div class="col-9 bg-danger">

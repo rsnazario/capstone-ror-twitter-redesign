@@ -16,9 +16,24 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+ 
+ @import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap");
+
+ * {
+   font-family: "Roboto", sans-serif;
+ }
 
 .bg-sidebar {
   background-color: #213246;
+}
+
+.nav-icons {
+  color: #213246;
+  opacity: 0.5;
+}
+
+.bg-nav {
+  background-color: #56abee;
 }
 
 .text-sidebar {
@@ -28,4 +43,8 @@
 .hover-info:hover {
   background-color: rgb(23, 162, 184);
   color: white;
+}
+
+.home {
+  text-decoration: none;
 }
