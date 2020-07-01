@@ -1,8 +1,8 @@
 <div class="col-2 min-vh-100 h-100 bg-sidebar w-100 h-100 pr-0">
 
   <div class="d-flex border-bottom border-dark w-100 text-sidebar pb-3 pt-2">
-    <% unless @user.photo.nil? %>
-      <%= image_tag @user.photo.thumb.url, class: 'ml-3 rounded-circle' %>
+    <% unless current_user.photo.nil? %>
+      <%= image_tag current_user.photo.thumb.url, class: 'ml-3 rounded-circle' %>
     <% else %>
       <i class="fas fa-user fa-4x m-2 ml-3"></i>
     <% end %>

@@ -1,7 +1,11 @@
 <div class="col border-left w-100">
   <div class="text-sidebar pt-4 pb-1 border-bottom w-100 ml-n3 mr-n5">
       <div class="d-flex justify-content-center flex-column align-items-center text-sidebar">
-        <i class="fas fa-user fa-4x"></i><br>
+        <% unless @user.photo.nil? %>
+          <%= image_tag @user.photo.profile.url, class: 'rounded-circle' %><br>
+        <% else %>
+          <i class="fas fa-user fa-4x"></i><br>
+        <% end %>
         <h6 class="text-titles font-weight-bold text-uppercase"> <%= @user.fullname %> </h6>
         <p class="text-grey mt-n2">@<%= @user.username %></p>
       </div>
