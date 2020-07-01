@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   # Validations
-  before_save {self.username = self.username.downcase}
-  validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 5, maximum: 15}
-  validates :fullname, presence: true, length: {minimum: 5, maximum: 50}
+  before_save { self.username = username.downcase }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 5, maximum: 15 }
+  validates :fullname, presence: true, length: { minimum: 5, maximum: 50 }
   # CarrierWave Image Uploader
 
   mount_uploader :photo, ImageUploader

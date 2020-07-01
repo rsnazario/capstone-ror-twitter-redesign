@@ -1,6 +1,6 @@
 class OpinionsController < ApplicationController
   before_action :authenticate_user
-  
+
   def new
     @thought = Opinion.new
   end
