@@ -20,6 +20,12 @@
         <%= form.label :fullname, 'Full Name:', class: 'text-primary font-weight-bold' %><br>
         <%= form.text_field(:fullname) %><br><br>
 
+        <%= form.label :photo, 'Choose a Profile Photo:', class: 'text-primary font-weight-bold' %><br>
+        <%= form.file_field(:photo) %> <br><br>
+
+        <%= form.label :coverImage, 'Choose a Cover Photo', class: 'text-primary font-weight-bold' %><br>
+        <%= form.file_field(:coverImage) %><br><br>
+
         <div class="d-flex justify-content-center">
           <%= form.submit 'Create Account', class: 'btn btn-primary'%>
         </div>

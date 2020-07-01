@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  mount_uploader :photo, ImageUploader
+  mount_uploader :coverImage, ImageUploader
+
   has_many :thoughts, class_name: 'Opinion', foreign_key: 'author_id'
 
   has_many :follows, foreign_key: 'follower_id', class_name: 'Following'
