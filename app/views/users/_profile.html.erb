@@ -34,7 +34,11 @@
     <ul class="list-unstyled h5">
       <% @followed_by.each do |user| %>
         <li class="d-flex">
-          <i class="fas fa-user fa-3x m-2 text-sidebar"></i>
+          <% unless user.photo.nil? %>
+            <%= image_tag user.photo.thumb.url, class: 'm-2 rounded-circle' %>
+          <% else %>
+            <i class="fas fa-user fa-3x m-2 text-sidebar"></i>
+          <% end %>
           <div class="d-flex align-items-center flex-row">
             <div class="text-info ml-3">
               <h4 class="mb-0"> <%= link_to user.username, user_path(user) %> </h4>
