@@ -1,9 +1,12 @@
 <div class="bg-white mt-4 ml-3 mr-3 p-2">
-  <h5 class="text-titles mb-3 ml-2 mr-2 pb-3 border-bottom border-grey"> New Opinions </h5>
-  <% @timeline_posts.each do |tweet| %>
+  <h5 class="text-titles mb-3 ml-2 mr-2 pb-3 border-bottom border-grey">Shared Opinions </h5>
+  <% if @user == current_user %>  
+    <%= render 'layouts/form' %>
+  <% end %>
+  <% @user.thoughts.each do |tweet| %>
     <div class="d-flex w-100 text-sidebar pb-3 pt-2">
-      <% unless tweet.author.photo.nil? %>
-        <%= image_tag tweet.author.photo.thumb.url, class: 'rounded-circle' %>
+      <% unless @user.photo.nil? %>
+        <%= image_tag @user.photo.thumb.url, class: 'rounded-circle' %>
       <% else %>
         <i class="fas fa-user fa-4x m-2"></i>
       <% end %>
