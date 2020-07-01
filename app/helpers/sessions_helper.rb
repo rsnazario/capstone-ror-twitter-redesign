@@ -4,14 +4,14 @@ module SessionsHelper
     current_user
   end
 
-  def logged_in?
-    !current_user.nil?
+  def not_logged_in?
+    current_user.nil?
   end
 
   def authenticate_user
-    unless logged_in?
-      flash[:notice] = 'Please Log In!'
-      redirect_to root_path
-    end
+    return unless not_logged_in?
+
+    flash[:notice] = 'Please Log In!'
+    redirect_to root_path
   end
 end
