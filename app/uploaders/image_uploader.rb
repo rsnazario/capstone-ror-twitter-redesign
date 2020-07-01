@@ -5,12 +5,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [700, 400, :north]
   end
 
-  version :medium do
+  version :profile do
     process resize_to_fit: [100, 100]
   end
 
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fit: [60, 60]
   end
 
   CarrierWave.configure do |config|
