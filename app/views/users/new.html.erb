@@ -17,6 +17,12 @@
         <%= form.label :username, 'Choose a username:', class: 'text-primary font-weight-bold' %><br>
         <%= form.text_field(:username) %> <br><br>
 
+        <%= form.label :photo, 'Choose a Profile Photo' %>
+        <%= form.file_field(:photo) %> <br><br>
+
+        <%= form.label :coverImage, 'Choose a Cover Photo' %>
+        <%= form.file_field(:coverImage) %>
+
         <%= form.label :fullname, 'Full Name:', class: 'text-primary font-weight-bold' %><br>
         <%= form.text_field(:fullname) %><br><br>
 
