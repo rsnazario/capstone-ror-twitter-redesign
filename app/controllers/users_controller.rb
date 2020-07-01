@@ -5,7 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    redirect_to root_path if @user.save
+    if @user.save
+      redirect_to root_path
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:notice] = 'Invalid Registration. Please try again!'
+    end
   end
 
   def index
