@@ -43,7 +43,7 @@
 <br>
 
 ## Database Diagram
-![erd](lib/assets/diagram.png)
+![erd](lib/assets/erd-diagram.png)
 
 
 ## Getting Start
