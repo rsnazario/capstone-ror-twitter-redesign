@@ -29,7 +29,6 @@ RSpec.describe User, type: :model do
   end
   
   context 'associations test' do
-    # associations: thoughts , follows , ppl_following , followers , ppl_followers
     let(:userA) { User.create!(username: 'rsnazario', fullname: 'Rafael Nazario') }
     let(:userB) { User.create!(username: 'crunchy', fullname: 'Crunchy Bacon') }
     let(:friendship1) { userA.follows.create!(followed_id: userB.id) }
