@@ -1,12 +1,14 @@
 # Capstone Ruby-on-Rails Twitter Redesign
 > A social media app in which you can post your thoughts about general topics
 
-![screenshot]()
+![screenshot](lib/assets/twitter-redesign-index.png)
+
+![screenshot](lib/assets/twitter-redesign-profile.png)
 
 <br>The main point of this project is to apply the skills acquired through Microverse Main Curriculum<br>
 
 ## Online Version
- not available yet
+ [Heroku App](https://immense-garden-44050.herokuapp.com/)
 
 ## Content
 
@@ -100,7 +102,13 @@ You can do it on [issues page](issues/).
 
 ## Acknowledgments
 
-A special thanks for the code reviewers.
+First of all, a special thanks for all Microverse Team and Code Reviewers that guides me through my learning.
+A special thanks to [Gregoire Vella](https://www.behance.net/gregoirevella) for this project, which took guidance on his project idea. The original page to check is [here](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details).
+
+For this project, I would like to say that I appreciate all help I had from:
+- My Current Partner: [Thiago Miranda](github.com/Sevlamare)
+- My Microverse Mentor: [Carlos Filho](github.com/camfilho)
+- Microverse Companion: [Evanson Igiri](github.com/evansinho)
 
 ## Author
 
