@@ -11,9 +11,7 @@
             <% unless @user[:coverImage].nil? %>
               <%= image_tag @user.coverImage.standard.url, class: 'photo-hero' %>
             <% else %>
-              <br><br><br>
-              <br><br><br>
-              <br><br><br>
+              <%= image_tag 'default.png', class: 'photo-hero' %>
             <% end %>
           </div>
           <div class="bg-white mt-5 ml-3 mr-3">
