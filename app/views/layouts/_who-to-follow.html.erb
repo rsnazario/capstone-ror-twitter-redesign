@@ -4,7 +4,8 @@
     <i class="fas fa-sync-alt pr-4"></i>
   </div>
   <ul class="list-unstyled h5">
-    <% yet_to_follow.each do |user| %>
+
+    <% not_following_users.each do |user| %>
       <% unless user == current_user %>
         <div class="d-flex w-100 text-sidebar pb-3 pt-2">
           <% unless user[:photo].nil? %>

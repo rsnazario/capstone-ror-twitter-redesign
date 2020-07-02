@@ -22,4 +22,10 @@ class User < ApplicationRecord
     Opinion.where(author: ppl_following)
       .or(Opinion.where(author: self)).ordered_by_most_recent
   end
+
+  scope :not_following_users, lambda { |user|
+    where('id NOT IN (?)',
+    (user.follows.map(&:followed_id) << user.id)).limit(10)
+    .order(created_at: :desc)
+  }
 end
