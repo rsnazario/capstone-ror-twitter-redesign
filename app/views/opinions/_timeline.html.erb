@@ -2,7 +2,7 @@
   <h5 class="text-titles mb-3 ml-2 mr-2 pb-3 border-bottom border-grey"> New Opinions </h5>
   <% @timeline_posts.each do |tweet| %>
     <div class="d-flex w-100 text-sidebar pb-3 pt-2">
-      <% unless tweet.author.photo.nil? %>
+      <% unless tweet.author[:photo].nil? %>
         <%= image_tag tweet.author.photo.thumb.url, class: 'rounded-circle' %>
       <% else %>
         <i class="fas fa-user fa-4x m-2"></i>
