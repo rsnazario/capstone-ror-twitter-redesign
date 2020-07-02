@@ -1,13 +1,14 @@
-<div class="col border-left border-grey ">
+<div class="col border-left border-bottom border-grey">
   <div class="d-flex justify-content-between align-items-center text-sidebar pt-4 pb-3  border-bottom border-grey">
     <h5 class="ml-3">WHO TO FOLLOW</h5> 
     <i class="fas fa-sync-alt pr-4"></i>
   </div>
   <ul class="list-unstyled h5">
-    <% yet_to_follow.each do |user| %>
+
+    <% not_following_users.each do |user| %>
       <% unless user == current_user %>
         <div class="d-flex w-100 text-sidebar pb-3 pt-2">
-          <% unless user.photo.nil? %>
+          <% unless user[:photo].nil? %>
             <%= image_tag user.photo.thumb.url, class: 'rounded-circle m-2' %>
           <% else %>
             <i class="fas fa-user fa-3x m-2"></i>
@@ -20,7 +21,7 @@
               </div>
               <div class="ml-3">
               <% unless current_user.ppl_following.find_by(id: user.id) or user == current_user %>
-                <%= link_to raw('<i class="fas fa-plus"></i>'), followings_path(:follower_id => current_user.id, :followed_id => user.id), :method => :post %>
+                <%= link_to raw('<i id="follow-now" class="fas fa-plus"></i>'), followings_path(:follower_id => current_user.id, :followed_id => user.id), :method => :post %>
               <% end %>
             </div>
             </li>

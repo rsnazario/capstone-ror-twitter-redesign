@@ -14,7 +14,8 @@
 
   <%= form_with(url: sessions_path) do |form| %>
     <div class="text mb-3">
-    <%= form.text_field :username, placeholder: "username" %> <br/></div>
+    <%= form.label :username, 'username: ' %> <br>
+    <%= form.text_field(:username) %> <br/></div>
     <div class="d-flex justify-content-center">
       <%= form.submit :Login, class: 'btn btn-primary' %>
     </div>

@@ -1,11 +1,22 @@
 <div class="col border-left border-bottom w-100 h-100">
   <div class="text-sidebar pt-4 pb-1 border-bottom w-100 ml-n3 mr-n5">
       <div class="d-flex justify-content-center flex-column align-items-center text-sidebar">
-        <% unless @user.photo.nil? %>
-          <%= image_tag @user.photo.profile.url, class: 'rounded-circle' %><br>
-        <% else %>
-          <i class="fas fa-user fa-4x"></i><br>
+        <div class="d-flex align-items-center">
+        <% unless current_user.ppl_following.find_by(id: @user.id) or @user == current_user %>
+          <%= link_to raw('<i id="follow-now" class="fas fa-plus fa-2x mr-4"></i>'), followings_path(:follower_id => current_user.id, :followed_id => @user.id), :method => :post %>
         <% end %>
+
+          <% unless @user[:photo].nil? %>
+            <%= image_tag @user.photo.profile.url, class: 'rounded-circle' %><br>
+          <% else %>
+            <i class="fas fa-user fa-4x"></i><br>
+          <% end %>
+
+          <% if current_user.ppl_following.find_by(id: @user.id) or @user == current_user %>
+            <%= link_to raw('<i class="fas fa-user-minus fa-2x ml-3"></i>'), following_path(user_following),
+            method: :delete %>
+          <% end %>
+        </div>
         <h6 class="text-titles font-weight-bold text-uppercase"> <%= @user.fullname %> </h6>
         <p class="text-grey mt-n2">@<%= @user.username %></p>
       </div>
@@ -34,7 +45,7 @@
     <ul class="list-unstyled h5">
       <% @followed_by.each do |user| %>
         <li class="d-flex">
-          <% unless user.photo.nil? %>
+          <% unless user[:photo].nil? %>
             <%= image_tag user.photo.thumb.url, class: 'm-2 rounded-circle' %>
           <% else %>
             <i class="fas fa-user fa-3x m-2 text-sidebar"></i>
@@ -53,5 +64,7 @@
         </li> 
       <% end %>
     </ul>
+
   </div>
+  
 </div>
