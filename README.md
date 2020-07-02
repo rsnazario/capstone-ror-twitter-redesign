@@ -1,11 +1,11 @@
 # Capstone Ruby-on-Rails Twitter Redesign
-> A social media app in which you can post your thoughts about general topics
+> A social media app in which you can post your thoughts about general topics. This is my Capstone project for Ruby on Rails section of Microverse. The original requisites are [here](https://www.notion.so/Twitter-redesign-f8a8d48453d54d1a949bb0ceab4c8718)
 
-![screenshot](lib/assets/twitter-redesign-index.png)
+## Screenshots
 
-![screenshot](lib/assets/twitter-redesign-profile.png)
+![screenshot](lib/assets/index.png)
 
-<br>The main point of this project is to apply the skills acquired through Microverse Main Curriculum<br>
+![screenshot](lib/assets/profile.png)
 
 ## Online Version
  [Heroku App](https://immense-garden-44050.herokuapp.com/)
@@ -34,14 +34,16 @@
 
 ## Built With
 
-- Ruby 2.7 <br>
-- Ruby on Rails 5.2 <br>
+- Ruby 2.7
+- Ruby on Rails 5.2
+- Bootstrap 4
 - Postgres and Devise gem (AOT)
-- Rubocop (Linter) with Stickler (CI Tool) <br>
-- Git, Github and VScode <br>
+- Rubocop (Linter) with Stickler (CI Tool)
+- Git, Github and VScode
+<br>
 
 ## Database Diagram
-![erd](docs/diagram.png)
+![erd](lib/assets/diagram.png)
 
 
 ## Getting Start
@@ -75,6 +77,19 @@ Setup database with:
 rake db:schema:load
 ```
 
+#### Setup Cloudinary and Figaro
+
+Create a [Cloudinary Account](https://cloudinary.com/users/register/free) and validate your e-mail. Download your cloudinary keys information.
+
+Run Figaro Gem (It will create the config/application.yml file)
+
+```
+bundle exec figaro install
+```
+
+Replace the content with your cloudinary keys file information. Change the keys name on config/initializers/cloudinary.rb file to match the keys on config/application.yml file.
+
+
 #### Run App
 To run, from the application folder, just type on terminal:
 ```js
@@ -84,7 +99,7 @@ Now you can go to your favorite web browser like Google Crome and access the url
 <br> http://localhost:3000
 
 
-#### Test (Remove before merge!)
+#### Test 
 On terminal type:
 ```
 rake db:test:load
