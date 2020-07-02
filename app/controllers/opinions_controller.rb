@@ -25,8 +25,4 @@ class OpinionsController < ApplicationController
   def timeline_posts
     @timeline_posts ||= current_user.friends_and_own_posts
   end
-
-  def yet_to_follow
-    (User.all - current_user.ppl_following)
-  end
 end
