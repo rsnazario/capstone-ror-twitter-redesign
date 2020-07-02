@@ -31,7 +31,7 @@ RSpec.describe 'Main Flow', type: :system do
 
         fill_in('username', with: 'salty')
         click_button 'Login'
-        # send_keys :enter --> type enter after filling in 
+        # send_keys :enter --> type enter after filling in
         fill_in('text', with: 'I am Salty Bacon!').send_keys :enter
         sleep 1
         page.find_by_id('follow-now').click

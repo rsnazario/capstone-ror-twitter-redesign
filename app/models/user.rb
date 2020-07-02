@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   scope :not_following_users, lambda { |user|
     where('id NOT IN (?)',
-    (user.follows.map(&:followed_id) << user.id)).limit(10)
-    .order(created_at: :desc)
+          (user.follows.map(&:followed_id) << user.id)).limit(10)
+      .order(created_at: :desc)
   }
 end

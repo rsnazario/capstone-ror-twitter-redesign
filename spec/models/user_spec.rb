@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -27,14 +29,14 @@ RSpec.describe User, type: :model do
       expect(user).to be true
     end
   end
-  
+
   context 'associations test' do
     let(:userA) { User.create!(username: 'rsnazario', fullname: 'Rafael Nazario') }
     let(:userB) { User.create!(username: 'crunchy', fullname: 'Crunchy Bacon') }
     let(:friendship1) { userA.follows.create!(followed_id: userB.id) }
     it 'ensures thoughts attached to user' do
       userA
-      thought = userA.thoughts.create(text: 'Test for user-opinion association')  
+      thought = userA.thoughts.create(text: 'Test for user-opinion association')
       expect(userA.thoughts.first).to eql(thought)
     end
 
@@ -65,6 +67,7 @@ RSpec.describe User, type: :model do
       friendship1
       expect(userB.ppl_followers.first).to eql(userA)
     end
-
   end
 end
+
+# rubocop:enable Metrics/BlockLength
