@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: %i[index show]
+  before_action :logged_out, only: %i[new create]
 
   def new
     @user = User.new
