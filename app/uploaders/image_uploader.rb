@@ -10,7 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :timeline do
-    process resize_to_fit: [60, 70]
+    process resize_to_fit: [70, 70]
   end
 
   version :thumb do
