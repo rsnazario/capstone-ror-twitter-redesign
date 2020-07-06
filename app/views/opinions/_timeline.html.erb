@@ -3,7 +3,7 @@
   <% @timeline_posts.each do |tweet| %>
     <div class="d-flex w-100 text-sidebar pb-3 pt-2">
       <% unless tweet.author[:photo].nil? %>
-        <%= image_tag tweet.author.photo.thumb.url %>
+        <%= image_tag tweet.author.photo.timeline.url %>
       <% else %>
         <i class="fas fa-user fa-4x m-2"></i>
       <% end %>
