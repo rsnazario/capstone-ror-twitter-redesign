@@ -9,9 +9,9 @@
         <div class="col-9 m-0 p-0 ">
           <div>
             <% unless @user[:coverImage].nil? %>
-              <%= image_tag @user.coverImage.standard.url, class: 'photo-hero' %>
+              <%= image_tag @user.coverImage.standard.url, class: 'photo-cover' %>
             <% else %>
-              <%= image_tag 'default.png', class: 'photo-hero' %>
+              <%= image_tag 'default.png', class: 'photo-cover' %>
             <% end %>
           </div>
           <div class="bg-white mt-5 ml-3 mr-3">

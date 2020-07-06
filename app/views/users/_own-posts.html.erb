@@ -6,7 +6,7 @@
   <% @user.thoughts.each do |tweet| %>
     <div class="d-flex w-100 text-sidebar pb-3 pt-2">
       <% unless @user[:photo].nil? %>
-        <%= image_tag @user.photo.thumb.url, class: 'rounded-circle' %>
+        <%= image_tag @user.photo.timeline.url %>
       <% else %>
         <i class="fas fa-user fa-4x m-2"></i>
       <% end %>
