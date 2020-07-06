@@ -1,6 +1,6 @@
 <div class="bg-white m-3 p-3 border-bottom ">
   <h5 class="text-titles font-weight-bold"> POST SOMETHING </h5>
   <%= form_with(model: @opinion) do |form| %>
-    <%= form.text_field :text, class:"w-100 border", placeholder: "Create an Opinion(max: 125 characters) " %> <br/>
+    <%= form.text_field :text, class:"w-100 border", placeholder: "Create an Opinion(max: 100 characters) ", :maxlength =>"100" %> <br/>
   <% end %>
 </div>
