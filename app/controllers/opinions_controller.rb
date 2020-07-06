@@ -8,7 +8,7 @@ class OpinionsController < ApplicationController
   def create
     @opinion = current_user.thoughts.build(opinions_params)
     @opinion.save
-    redirect_to opinions_path
+    redirect_back(fallback_location: root_path)
   end
 
   def index
