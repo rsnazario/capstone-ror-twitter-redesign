@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path
+      cookies[:current_user_id] = @user.id
+      redirect_to opinions_path
     else
       redirect_back(fallback_location: root_path)
       flash[:notice] = 'Invalid Registration. Please try again!'

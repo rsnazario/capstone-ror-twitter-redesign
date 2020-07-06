@@ -1,6 +1,6 @@
 <div class="bg-white mt-4 ml-3 mr-3 p-2">
   <h5 class="text-titles mb-3 ml-2 mr-2 pb-3 border-bottom border-grey">Shared Opinions </h5>
-  <% if @user == current_user %>  
+  <% if @user == @c %>  
     <%= render 'show-form' %>
   <% end %>
   <% @user.thoughts.each do |tweet| %>

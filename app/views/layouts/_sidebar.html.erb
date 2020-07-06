@@ -2,7 +2,7 @@
 
   <div class="d-flex border-bottom border-dark w-100 text-sidebar pb-3 pt-2">
     <% unless @c[:photo].nil? %>
-      <%= image_tag @c.photo.thumb.url, class: 'ml-3 rounded-circle' %>
+      <%= image_tag @c.photo.thumb.url, class: 'ml-3' %>
     <% else %>
       <i class="fas fa-user fa-4x m-2 ml-3"></i>
     <% end %>
