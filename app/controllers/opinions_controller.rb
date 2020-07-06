@@ -14,6 +14,7 @@ class OpinionsController < ApplicationController
   def index
     @thoughts = Opinion.all
     timeline_posts
+    curr
   end
 
   private

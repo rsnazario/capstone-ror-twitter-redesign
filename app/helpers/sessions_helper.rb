@@ -14,4 +14,8 @@ module SessionsHelper
     flash[:notice] = 'Please Log In!'
     redirect_to root_path
   end
+
+  def curr
+    @c = current_user
+  end
 end
