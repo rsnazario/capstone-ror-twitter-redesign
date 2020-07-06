@@ -47,6 +47,8 @@ group :development, :test do
   gem 'rspec-rails'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'hirb', '~> 0.7.3'
+  gem 'bullet', '~> 6.1'
 end
 
 group :development do

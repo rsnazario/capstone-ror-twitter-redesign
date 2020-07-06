@@ -17,11 +17,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    curr
   end
 
   def show
     @user = User.find_by(id: params[:id])
     @followed_by = @user.ppl_followers
+    curr
   end
 
   private
