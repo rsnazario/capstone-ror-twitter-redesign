@@ -8,7 +8,7 @@ class FollowingsController < ApplicationController
 
   def index
     curr
-    @follows_me = @c.ppl_followers
+    @follows_me = @c.followers.includes(:follower)
     @i_follow = @c.follows.includes(:followed)
   end
 

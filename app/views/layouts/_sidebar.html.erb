@@ -30,6 +30,12 @@
 
     <%= link_to raw('
     <div class="profile d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
+      <i class="fas fa-users fa-2x"></i>
+      <h3 class="text-uppercase font-weight-bold ml-n1"> &nbsp Network </h3> 
+    </div>'), followings_path %>
+
+    <%= link_to raw('
+    <div class="profile d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
       <i class="fas fa-user fa-2x ml-1"></i>
       <h3 class="text-uppercase font-weight-bold"> &nbsp Profile </h3> 
     </div>'), user_path(current_user) %>
@@ -41,3 +47,4 @@
     </div>'), new_session_path, :method => :delete %>
   </div>
 </div>
+
