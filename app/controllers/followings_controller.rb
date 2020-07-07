@@ -9,7 +9,7 @@ class FollowingsController < ApplicationController
   def index
     curr
     @follows_me = @c.ppl_followers
-    @i_follow = @c.ppl_following
+    @i_follow = @c.follows.includes(:followed)
   end
 
   def destroy
