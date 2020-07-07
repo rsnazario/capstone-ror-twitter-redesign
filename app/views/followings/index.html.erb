@@ -1,0 +1,62 @@
+<div class="overflow-hidden">
+  <div class="row">
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col">
+      <%= render 'layouts/navbar' %>
+
+      <div class="row">
+        <div class="col white m-3 border border-info rounded mr-5">
+          <h4 class="font-weight-bold text-uppercase text-center text-titles">Following</h4>
+          <% @i_follow.each do |user| %>
+            
+            <div class="d-flex w-100 text-sidebar pb-3 pt-2">
+              <% unless user[:photo].nil? %>
+                <%= image_tag user.photo.thumb.url, class: 'rounded-circle m-2' %>
+              <% else %>
+                <i class="fas fa-user fa-3x m-2"></i>
+              <% end %>
+
+              <div class="post-content ml-3 mt-2">
+                <li class="d-flex flex-row"> 
+                  <div class="user-info">
+                    <%=link_to user.fullname, user_path(user)%><br>
+                    <small class="text-sidebar">@<%= user.username %></small>
+                  </div>
+                </li>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
+
+        <div class="col bg-white m-3 border border-info rounded mr-5 ml-n2">
+          <h4 class="font-weight-bold text-uppercase text-center text-titles">Followers</h4>
+          <% @follows_me.each do |user| %>
+
+            <div class="d-flex w-100 text-sidebar pb-3 pt-2">
+              <% unless user[:photo].nil? %>
+                <%= image_tag user.photo.thumb.url, class: 'rounded-circle m-2' %>
+              <% else %>
+                <i class="fas fa-user fa-3x m-2"></i>
+              <% end %>
+
+              <div class="post-content ml-3 mt-2">
+                <li class="d-flex flex-row"> 
+                  <div class="user-info">
+                    <%=link_to user.fullname, user_path(user)%><br>
+                    <small class="text-sidebar">@<%= user.username %></small>
+                  </div>
+                </li>
+              </div>
+            </div>            
+
+
+
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

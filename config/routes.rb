@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :opinions, only: [:new, :create, :index]
   post 'create_opinion', to: 'opinions#create'
   
-  resources :followings, only: [:new, :create, :destroy]
+  resources :followings, only: [:new, :create, :index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
 
 
