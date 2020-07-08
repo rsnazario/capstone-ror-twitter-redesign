@@ -10,6 +10,7 @@ class FollowingsController < ApplicationController
     curr
     @follows_me = @c.followers.includes(:follower)
     @i_follow = @c.follows.includes(:followed)
+    @yet_to_follow = (@c.ppl_followers - @c.ppl_following)
   end
 
   def destroy

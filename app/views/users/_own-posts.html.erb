@@ -3,7 +3,7 @@
   <% if @user == @c %>  
     <%= render 'show-form' %>
   <% end %>
-  <% @user.thoughts.each do |tweet| %>
+  <% @posts.each do |tweet| %>
     <div class="d-flex w-100 text-sidebar pb-3 pt-2">
       <% unless @user[:photo].nil? %>
         <%= image_tag @user.photo.timeline.url %>

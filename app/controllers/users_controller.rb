@@ -24,9 +24,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @followed_by = @user.ppl_followers
+    @posts = @user.thoughts.includes(:author)
+    @user_follows = @user.follows.includes(:followed)
+    @user_followed_by = @user.followers.includes(:follower)
     curr
-    
   end
 
   private

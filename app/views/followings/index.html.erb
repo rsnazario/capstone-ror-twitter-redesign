@@ -9,59 +9,56 @@
         <div class="col white m-3 border border-info rounded mr-5">
           <h4 class="font-weight-bold text-uppercase text-center text-titles">Following</h4>
           <% @i_follow.each do |friendship| %>
-            
             <div class="d-flex w-100 text-sidebar pb-3 pt-2">
               <% unless friendship.followed[:photo].nil? %>
                 <%= image_tag friendship.followed.photo.thumb.url, class: 'rounded-circle m-2' %>
               <% else %>
                 <i class="fas fa-user fa-3x m-2"></i>
               <% end %>
-
               <div class="post-content ml-3 mt-2 d-flex">
                 <div>
                   <li class="d-flex flex-row"> 
                     <div class="user-info">
-                      <%=link_to friendship.followed.fullname, opinions_path%><br>
+                      <%=link_to friendship.followed.fullname, user_path(friendship.followed)%><br>
                       <small class="text-sidebar">@<%= friendship.followed.username%></small>
                     </div>
                   </li>
                   </div>
                   <div>
-                  <%= link_to raw('<i class="fas fa-user-minus fa-2x ml-3"></i>'), following_path(friendship.id), method: :delete %>
+                    <%= link_to raw('<i class="fas fa-user-minus fa-2x ml-3"></i>'), following_path(friendship.id), method: :delete %>
                   </div>
               </div>
-
             </div>
-
           <% end %>
         </div>
 
         <div class="col bg-white m-3 border border-info rounded mr-5 ml-n2">
           <h4 class="font-weight-bold text-uppercase text-center text-titles">Followers</h4>
-          <% @follows_me.each do |user| %>
-
+          <% @follows_me.each do |friendship| %>
             <div class="d-flex w-100 text-sidebar pb-3 pt-2">
-              <% unless user[:photo].nil? %>
-                <%= image_tag user.photo.thumb.url, class: 'rounded-circle m-2' %>
+              <% unless friendship.follower[:photo].nil? %>
+                <%= image_tag friendship.follower.photo.timeline.url, class: 'rounded m-2' %>
               <% else %>
                 <i class="fas fa-user fa-3x m-2"></i>
               <% end %>
 
               <div class="post-content ml-3 mt-2">
-                <li class="d-flex flex-row"> 
-                  <div class="user-info">
-                    <%=link_to user.fullname, user_path(user)%><br>
-                    <small class="text-sidebar">@<%= user.username %></small>
+                <li class="d-flex flex-row">
+                  <div class="user-info mt-2">
+                    <%=link_to friendship.follower.fullname, user_path(friendship.follower)%><br>
+                    <small class="text-sidebar">@<%= friendship.follower.username %></small>
+                  </div>
+                  <div class="mt-3 ml-2">
+                    <% if @yet_to_follow.include? (friendship.follower) %>
+                      <%= link_to raw('<i id="follow-now" class="fas fa-plus fa-2x mr-4"></i>'), followings_path(:follower_id => @c.id, :followed_id => friendship.follower.id), :method => :post %>
+                    <% end %>
                   </div>
                 </li>
               </div>
             </div>            
-
-
-
           <% end %>
         </div>
-
+        
       </div>
     </div>
   </div>
