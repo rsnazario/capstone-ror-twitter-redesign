@@ -23,11 +23,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    curr
     @user = User.find_by(id: params[:id])
     @posts = @user.thoughts.includes(:author)
+    @i_follow = @c.follows.includes(:followed)
     @user_follows = @user.follows.includes(:followed)
     @user_followed_by = @user.followers.includes(:follower)
-    curr
   end
 
   private

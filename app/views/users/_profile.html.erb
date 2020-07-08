@@ -3,8 +3,8 @@
       <div class="d-flex justify-content-center flex-column align-items-center text-sidebar">
 
         <div class="d-flex align-items-center">
-          <% unless @c.ppl_following.find_by(id: @user.id) and @user != @c %>
-            <%= link_to raw('<i id="follow-now" class="fas fa-plus fa-2x mr-4"></i>'), followings_path(:follower_id => @c.id, :followed_id => @user.id), :method => :post %>
+          <% unless @c.ppl_following.find_by(id: @user.id) || @c == @user%>
+              <%= link_to raw('<i id="follow-now" class="fas fa-plus fa-2x mr-4"></i>'), followings_path(:follower_id => @c.id, :followed_id => @user.id), :method => :post %>
           <% end %>
 
           <% unless @user[:photo].nil? %>
@@ -34,7 +34,7 @@
       <small class="text-uppercase text-grey"> Following </small>
     </div>
     <div class="followers d-flex flex-column align-items-center text-sidebar" >
-      <h3> <%= @User_followed_by.count %> </h3>
+      <h3> <%= @user_followed_by.count %> </h3>
       <small class="text-uppercase text-grey"> Followers </small>
     </div>
   </div>
@@ -45,7 +45,7 @@
     </div>
 
     <ul class="list-unstyled h5">
-      <% @followed_by.each do |friendship| %>
+      <% @user_followed_by.each do |friendship| %>
         <li class="d-flex">
           <% unless friendship.follower[:photo].nil? %>
             <%= image_tag friendship.follower.photo.thumb.url, class: 'm-2' %>
