@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
     curr
+    @users = User.all
   end
 
   def show
