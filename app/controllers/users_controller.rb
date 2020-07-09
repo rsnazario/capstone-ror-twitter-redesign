@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   def index
     curr
     @users = User.all
+    if params[:search]
+      @search_term = params[:search]
+      @users = @users.search_by(@search_term).limit(5)
+    end
   end
 
   def show

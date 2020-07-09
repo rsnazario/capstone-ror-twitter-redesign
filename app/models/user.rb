@@ -23,4 +23,8 @@ class User < ApplicationRecord
           (user.follows.map(&:followed_id) << user.id)).limit(10)
       .order(created_at: :desc)
   }
+
+  def self.search_by(search_term)
+    where("LOWER(fullname) LIKE :search_term", search_term: "%#{search_term.capitalize}%").or where("LOWER(username) LIKE :search_term", search_term: "%#{search_term.downcase}%")
+  end
 end
