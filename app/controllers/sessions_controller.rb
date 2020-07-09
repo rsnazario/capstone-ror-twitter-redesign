@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to opinions_path
     else
       redirect_back(fallback_location: root_path)
-      flash[:error] = "Invalid/Unregistered Username"
+      flash[:error] = 'Invalid/Unregistered Username'
     end
   end
 
