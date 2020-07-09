@@ -46,8 +46,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
   gem 'hirb', '~> 0.7.3'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -55,9 +55,9 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'bullet'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'bullet'
 end
 
 group :test do

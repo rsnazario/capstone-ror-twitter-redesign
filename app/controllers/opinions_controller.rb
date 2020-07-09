@@ -13,7 +13,10 @@ class OpinionsController < ApplicationController
 
   def index
     curr
-    @opinions = User.joins(:thoughts).select("users.*, opinions.text").group("opinions.id").order('users.created_at DESC')
+    @opinions = User.joins(:thoughts)
+      .select('users.*, opinions.text')
+      .group('opinions.id')
+      .order('users.created_at DESC')
   end
 
   private

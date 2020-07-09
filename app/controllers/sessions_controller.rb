@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :logged_out, only: %i[new create]
-  
+
   def new; end
 
   def create
