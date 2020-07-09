@@ -45,6 +45,7 @@
     </div>
 
     <ul class="list-unstyled h5">
+
       <% @user_followed_by.each do |friendship| %>
         <li class="d-flex">
           <% unless friendship.follower[:photo].nil? %>
@@ -65,6 +66,7 @@
           </div>
         </li> 
       <% end %>
+      
     </ul>
 
   </div>
