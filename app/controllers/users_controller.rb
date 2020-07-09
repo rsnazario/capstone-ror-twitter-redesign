@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to opinions_path
     else
       redirect_back(fallback_location: root_path)
-      flash[:notice] = 'Invalid Registration. Please try again!'
+      flash[:error] = @user.errors.full_messages
     end
   end
 

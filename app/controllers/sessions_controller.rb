@@ -4,10 +4,13 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    return unless (userx = User.find_by(username: params[:username]))
-
-    cookies[:current_user_id] = userx.id
-    redirect_to opinions_path
+    if (userx = User.find_by(username: params[:username]))
+      cookies[:current_user_id] = userx.id
+      redirect_to opinions_path
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:error] = "Invalid/Unregistered Username"
+    end
   end
 
   def destroy
