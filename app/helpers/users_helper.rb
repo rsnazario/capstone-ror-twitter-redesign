@@ -23,7 +23,7 @@ module UsersHelper
 
   def delete?(table, user)
     if table.include? (user)
-      return (link_to raw('<i class="fas fa-user-minus fa-size ml-3"></i>'), following_path(user_following), method: :delete)
+      return (link_to raw('<i class="fas fa-user-minus fa-size ml-3"></i>'), following_path(user_following(user)), method: :delete)
     end
   end
 end
