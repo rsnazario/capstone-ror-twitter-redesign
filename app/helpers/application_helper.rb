@@ -19,4 +19,11 @@ module ApplicationHelper
     end
   end
 
+  def profile_picture?(user)
+    unless user[:photo].nil?
+      return (image_tag user.photo.profile.url, class: 'm-2')
+    else
+      return raw('<i class="fas fa-user fa-3x m-2 mr-3"></i>')
+    end
+  end
 end

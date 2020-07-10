@@ -33,6 +33,9 @@ class UsersController < ApplicationController
     @i_follow = @c.follows.includes(:followed)
     @user_follows = @user.follows.includes(:followed)
     @user_followed_by = @user.followers.includes(:follower)
+    @yet_to_follow = (@c.ppl_followers - @c.ppl_following)
+    @users_following = @c.ppl_following
+    @new_friend = User.all - @c.ppl_following
   end
 
   private

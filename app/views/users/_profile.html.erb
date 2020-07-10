@@ -1,24 +1,11 @@
 <div class="col border-left border-bottom w-100">
   <div class="text-sidebar pt-4 pb-1 border-bottom w-100 ml-n3 mr-n5">
       <div class="d-flex justify-content-center flex-column align-items-center text-sidebar">
-
         <div class="d-flex align-items-center">
-          <% unless @c.ppl_following.find_by(id: @user.id) || @c == @user%>
-              <%= link_to raw('<i id="follow-now" class="fas fa-plus fa-2x mr-4"></i>'), followings_path(:follower_id => @c.id, :followed_id => @user.id), :method => :post %>
-          <% end %>
-
-          <% unless @user[:photo].nil? %>
-            <%= image_tag @user.photo.profile.url %><br>
-          <% else %>
-            <i class="fas fa-user fa-4x"></i><br>
-          <% end %>
-
-          <% if @c.ppl_following.find_by(id: @user.id) and @user != @c %>
-            <%= link_to raw('<i class="fas fa-user-minus fa-2x ml-3"></i>'), following_path(user_following),
-            method: :delete %>
-          <% end %>
+          <%= am_i_following?(@new_friend, @user) %>
+          <%= profile_picture?(@user) %>
+          <%= delete?(@users_following, @user) %> 
         </div>
-
         <h6 class="text-titles font-weight-bold text-uppercase"> <%= @user.fullname %> </h6>
         <p class="text-grey mt-n2">@<%= @user.username %></p>
       </div>
@@ -41,34 +28,23 @@
 
   <div class="followed-by">
     <div class="d-flex justify-content-between align-items-center text-sidebar pt-4 pb-3  border-bottom border-grey">
-      <h5 class="ml-3 text-uppercase">Followed By</h5> 
-    </div>
-
-    <ul class="list-unstyled h5">
-
-      <% @user_followed_by.each do |friendship| %>
-        <li class="d-flex">
-          <% unless friendship.follower[:photo].nil? %>
-            <%= image_tag friendship.follower.photo.thumb.url, class: 'm-2' %>
-          <% else %>
-            <i class="fas fa-user fa-3x m-2 text-sidebar"></i>
-          <% end %>
-          <div class="d-flex align-items-center flex-row">
-            <div class="text-info ml-3">
-              <h4 class="mb-0"> <%= link_to friendship.follower.username, user_path(friendship.follower) %> </h4>
-              <small class="text-sidebar">@<%= friendship.follower.username %></small>
-            </div>
-            <div class="ml-5">
-              <% unless @c.ppl_following.find_by(id: friendship.follower.id) or friendship.follower == @c %>
-                <%= link_to raw('<i class="fas fa-plus"></i>'), followings_path(:follower_id => @c.id, :followed_id => friendship.follower.id), :method => :post %>
-              <% end %>
-            </div>
-          </div>
-        </li> 
-      <% end %>
-      
-    </ul>
-
+    <h5 class="ml-3 text-uppercase">Followed By</h5> 
   </div>
-  
+  <ul class="list-unstyled h5">
+    <% @user_followed_by.each do |friendship| %>
+      <li class="d-flex text-sidebar">
+        <%= picture?(friendship.follower) %>
+        <div class="d-flex align-items-center flex-row">
+          <div class="text-info ml-3">
+            <h4 class="mb-0"> <%= link_to friendship.follower.username, user_path(friendship.follower) %> </h4>
+            <small class="text-sidebar">@<%= friendship.follower.username %></small>
+          </div>
+          <div class="ml-5">
+            <%= am_i_following?(@new_friend, friendship.follower) %>
+          </div>
+        </div>
+      </li> 
+    <% end %>
+  </ul>
+  </div>
 </div>
