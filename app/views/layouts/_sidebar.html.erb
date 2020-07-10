@@ -1,7 +1,7 @@
 <div class="col-2 min-vh-100 bg-sidebar w-100 pr-0">
 
   <div class="d-flex border-bottom border-dark w-100 text-sidebar pb-3 pt-2">
-    <% unless @c[:photo].nil? %>
+    <% unless @c[:photo].nil?  %>
       <%= image_tag @c.photo.thumb.url, class: 'ml-3' %>
     <% else %>
       <i class="fas fa-user fa-4x m-2 ml-3"></i>
@@ -11,11 +11,11 @@
 
   <div class="statistics text-white d-flex w-100 justify-content-center align-items-center border-bottom border-dark pt-2 pb-2">
     <div class="following d-flex flex-column align-items-center pr-3 border-right border-dark text-sidebar">
-      <h3> <%= @c.follows.count %> </h3>
+      <h3> <%= current_following %> </h3>
       <h5> Following </h5>
     </div>
     <div class="followers d-flex flex-column align-items-center pl-3 text-sidebar" >
-      <h3> <%= @c.followers.count %> </h3>
+      <h3> <%= current_followed %> </h3>
       <h5> Followers </h5>
     </div>
   </div>
