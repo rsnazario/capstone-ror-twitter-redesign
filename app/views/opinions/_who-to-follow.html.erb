@@ -8,11 +8,7 @@
     <% not_following_users.each do |user| %>
       <% unless user == @c %>
         <div class="d-flex w-100 text-sidebar pb-3 pt-2">
-          <% unless user[:photo].nil? %>
-            <%= image_tag user.photo.thumb.url, class: 'rounded-circle m-2' %>
-          <% else %>
-            <i class="fas fa-user fa-3x m-2"></i>
-          <% end %>
+          <%= picture?(user) %>
           <div class="post-content ml-3 mt-2">
             <li class="d-flex flex-row"> 
               <div class="user-info">
@@ -20,10 +16,8 @@
               <small class="text-sidebar">@<%= user.username %></small>
               </div>
               <div class="ml-3">
-              <% unless @c.ppl_following.find_by(id: user.id) or user == @c %>
-                <%= link_to raw('<i id="follow-now" class="fas fa-plus"></i>'), followings_path(:follower_id => @c.id, :followed_id => user.id), :method => :post %>
-              <% end %>
-            </div>
+                <%= (link_to raw('<i id="follow-now" class="fas fa-plus"></i>'), followings_path(:follower_id => @c.id, :followed_id => user.id), :method => :post) %>
+              </div>
             </li>
           </div>
         </div>

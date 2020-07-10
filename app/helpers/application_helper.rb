@@ -10,4 +10,13 @@ module ApplicationHelper
   def current_followed
     Following.where(followed_id: @c.id).count
   end
+
+  def picture?(user)
+    unless user[:photo].nil?
+      return (image_tag user.photo.thumb.url, class: 'm-2')
+    else
+      return raw('<i class="fas fa-user fa-3x m-2"></i>')
+    end
+  end
+
 end
