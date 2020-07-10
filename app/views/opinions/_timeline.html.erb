@@ -3,11 +3,7 @@
   
   <% @opinions.each do |tweet| %>
     <div class="d-flex w-100 text-sidebar pb-3 pt-2">
-      <% unless tweet[:photo].nil? %>
-        <%= image_tag tweet.photo.timeline.url %>
-      <% else %>
-        <i class="fas fa-user fa-4x m-2"></i>
-      <% end %>
+      <%= picture?(tweet) %>
       <div class="post-content ml-3 mt-2">
         <h5 class="text-titles"> <%= link_to tweet.fullname, user_path(tweet.id), class:"text-titles font-weight-bold" %> </h5>
         <p class="text-lightgrey"> <%= tweet.text %> </p>

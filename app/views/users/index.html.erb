@@ -17,11 +17,7 @@
             <% @users.each do |user| %>
 
               <div class="d-flex w-100 text-sidebar pb-3 pt-2">
-                <% unless user[:photo].nil? %>
-                  <%= image_tag user.photo.timeline.url %>
-                <% else %>
-                  <i class="fas fa-user fa-4x m-2"></i>
-                <% end %>
+                <%= picture?(user) %>
                 <div class="post-content ml-3 mt-2">
                   <h5 class="text-titles"> <%= link_to user.fullname, user_path(user), class:"text-titles font-weight-bold" %> </h5>
                   <small>@<%= user.username %></small> 
