@@ -13,20 +13,20 @@
 
   <div class="statistics text-white d-flex w-100 justify-content-between align-items-center border-bottom ml-n3 pl-3 pt-2 pb-2">
     <div class="n-tweets d-flex flex-column align-items-center text-sidebar">
-      <h3 class="font-weight-bold"> <%= @user.thoughts.count %> </h3>
+      <h3 class="font-weight-bold"> <%= posted(@user) %> </h3>
       <small class="text-uppercase text-grey"> Opinions</small>
     </div>
     <div class="following d-flex flex-column align-items-center text-sidebar">
-      <h3> <%= @user_follows.count %> </h3>
+      <h3> <%= current_following(@user) %> </h3>
       <small class="text-uppercase text-grey"> Following </small>
     </div>
     <div class="followers d-flex flex-column align-items-center text-sidebar" >
-      <h3> <%= @user_followed_by.count %> </h3>
+      <h3> <%= current_followed(@user) %> </h3>
       <small class="text-uppercase text-grey"> Followers </small>
     </div>
   </div>
 
-  <div class="followed-by">
+  <div class="followed-by text-sidebar">
     <div class="d-flex justify-content-between align-items-center text-sidebar pt-4 pb-3  border-bottom border-grey">
     <h5 class="ml-3 text-uppercase">Followed By</h5> 
   </div>

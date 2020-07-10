@@ -7,11 +7,11 @@
 
   <div class="statistics text-white d-flex w-100 justify-content-center align-items-center border-bottom border-dark pt-2 pb-2">
     <div class="following d-flex flex-column align-items-center pr-3 border-right border-dark text-sidebar">
-      <h3> <%= current_following %> </h3>
+      <h3> <%= current_following(@c) %> </h3>
       <h5> Following </h5>
     </div>
     <div class="followers d-flex flex-column align-items-center pl-3 text-sidebar" >
-      <h3> <%= current_followed %> </h3>
+      <h3> <%= current_followed(@c) %> </h3>
       <h5> Followers </h5>
     </div>
   </div>

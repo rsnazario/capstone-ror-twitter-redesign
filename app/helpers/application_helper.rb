@@ -3,12 +3,12 @@ module ApplicationHelper
     @users = User.not_following_users(current_user)
   end
 
-  def current_following
-    Following.where(follower_id: @c.id).count
+  def current_following(user)
+    Following.where(follower_id: user.id).count
   end
 
-  def current_followed
-    Following.where(followed_id: @c.id).count
+  def current_followed(user)
+    Following.where(followed_id: user.id).count
   end
 
   def picture?(user)
