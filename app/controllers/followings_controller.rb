@@ -6,6 +6,13 @@ class FollowingsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def index
+    curr
+    @follows_me = @c.followers.includes(:follower)
+    @i_follow = @c.follows.includes(:followed)
+    @yet_to_follow = (@c.ppl_followers - @c.ppl_following)
+  end
+
   def destroy
     @follow = Following.find(params[:id])
     @follow.destroy

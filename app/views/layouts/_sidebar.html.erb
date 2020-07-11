@@ -1,21 +1,17 @@
-<div class="col-2 min-vh-100 h-100 bg-sidebar w-100 h-100 pr-0">
+<div class="col-2 min-vh-100 bg-sidebar w-100 pr-0">
 
   <div class="d-flex border-bottom border-dark w-100 text-sidebar pb-3 pt-2">
-    <% unless current_user[:photo].nil? %>
-      <%= image_tag current_user.photo.thumb.url, class: 'ml-3 rounded-circle' %>
-    <% else %>
-      <i class="fas fa-user fa-4x m-2 ml-3"></i>
-    <% end %>
-    <h4 class="mt-3 ml-3 mr-3"> <%= current_user.fullname %> </h4>
+    <%= picture?(@c) %>
+    <h4 class="mt-3 ml-3 mr-3 text-uppercase"> <%= @c.fullname %> </h4>
   </div>
 
   <div class="statistics text-white d-flex w-100 justify-content-center align-items-center border-bottom border-dark pt-2 pb-2">
     <div class="following d-flex flex-column align-items-center pr-3 border-right border-dark text-sidebar">
-      <h3> <%= current_user.follows.count %> </h3>
+      <h3> <%= current_following(@c) %> </h3>
       <h5> Following </h5>
     </div>
     <div class="followers d-flex flex-column align-items-center pl-3 text-sidebar" >
-      <h3> <%= current_user.followers.count %> </h3>
+      <h3> <%= current_followed(@c) %> </h3>
       <h5> Followers </h5>
     </div>
   </div>
@@ -23,20 +19,39 @@
   <div class="links">
     <%= link_to raw(
     '<div class="home d-flex text-sidebar m-2 pt-1 pb-2 hover-info border-bottom border-dark">
-      <i class="fas fa-home fa-2x"> &nbsp Home </i>
+      <i class="fas fa-home fa-2x"></i> 
+      <h3 class="text-uppercase font-weight-bold"> &nbsp Home </h3>
     </div>
     '), opinions_path %>
 
-    <%= link_to raw('
-    <div class="profile d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
-      <i class="fas fa-user fa-2x ml-1"></i>
-      <h2> &nbsp Profile </h2> 
-    </div>'), user_path(current_user) %>
+    <%= link_to raw(
+      '<div class="home d-flex text-sidebar m-2 pt-1 pb-2 hover-info border-bottom border-dark">
+        <i class="fas fa-search fa-2x"></i>
+        <h3 class="text-uppercase font-weight-bold"> &nbsp Connect </h3>
+      </div>
+    '), users_path %>  
 
     <%= link_to raw('
-    <div class="logout d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
-      <i class="fas fa-sign-out-alt fa-2x ml-1"></i>
-      <h2> &nbsp Logout </h2>
-    </div>'), new_session_path, :method => :delete %>
+      <div class="profile d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
+        <i class="fas fa-users fa-2x"></i>
+        <h3 class="text-uppercase font-weight-bold ml-n1"> &nbsp Network </h3> 
+      </div>
+    '), followings_path %>
+
+    <%= link_to raw('
+      <div class="profile d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
+        <i class="fas fa-user fa-2x ml-1"></i>
+        <h3 class="text-uppercase font-weight-bold"> &nbsp Profile </h3> 
+      </div>
+    '), user_path(current_user) %>
+
+    <%= link_to raw('
+      <div class="logout d-flex m-2 pt-1 hover-info border-bottom border-dark text-sidebar">
+        <i class="fas fa-sign-out-alt fa-2x ml-1"></i>
+        <h3 class="text-uppercase font-weight-bold"> &nbsp Logout </h3>
+      </div>
+    '), new_session_path, :method => :delete %>
+    
   </div>
 </div>
+

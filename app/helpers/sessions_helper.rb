@@ -4,6 +4,10 @@ module SessionsHelper
     current_user
   end
 
+  def curr
+    @c = current_user
+  end
+
   def not_logged_in?
     current_user.nil?
   end
@@ -13,5 +17,11 @@ module SessionsHelper
 
     flash[:notice] = 'Please Log In!'
     redirect_to root_path
+  end
+
+  def logged_out
+    return if not_logged_in?
+
+    redirect_to opinions_path
   end
 end

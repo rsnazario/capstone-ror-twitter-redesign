@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: %i[index show]
+  before_action :logged_out, only: %i[new create]
 
   def new
     @user = User.new
@@ -8,20 +9,33 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path
+      cookies[:current_user_id] = @user.id
+      redirect_to opinions_path
     else
       redirect_back(fallback_location: root_path)
-      flash[:notice] = 'Invalid Registration. Please try again!'
+      flash[:error] = @user.errors.full_messages
     end
   end
 
   def index
+    curr
     @users = User.all
+    return unless params[:search]
+
+    @search_term = params[:search]
+    @users = @users.search_by(@search_term).limit(5)
   end
 
   def show
+    curr
     @user = User.find_by(id: params[:id])
-    @followed_by = @user.ppl_followers
+    @posts = @user.thoughts.includes(:author)
+    @i_follow = @c.follows.includes(:followed)
+    @user_follows = @user.follows.includes(:followed)
+    @user_followed_by = @user.followers.includes(:follower)
+    @yet_to_follow = (@c.ppl_followers - @c.ppl_following)
+    @users_following = @c.ppl_following
+    @new_friend = User.all - @c.ppl_following
   end
 
   private

@@ -1,0 +1,53 @@
+<div class="overflow-hidden">
+  <div class="row">
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col">
+      <%= render 'layouts/navbar' %>
+
+      <div class="row">
+        <div class="col white m-3 border border-info rounded mr-5">
+          <h4 class="font-weight-bold text-uppercase text-center text-titles">Following</h4>
+          <% @i_follow.each do |friendship| %>
+            <div class="d-flex w-100 text-sidebar pb-3 pt-2">
+              <%= picture?(friendship.followed) %>
+              <div class="post-content ml-3 mt-2 d-flex">
+                <div>
+                  <li class="d-flex flex-row"> 
+                    <div class="user-info">
+                      <%=link_to friendship.followed.fullname, user_path(friendship.followed)%><br>
+                      <small class="text-sidebar">@<%= friendship.followed.username%></small>
+                    </div>
+                  </li>
+                  </div>
+                  <div>
+                    <%= link_to raw('<i class="fas fa-user-minus fa-2x ml-3"></i>'), following_path(friendship.id), method: :delete %>
+                  </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col bg-white m-3 border border-info rounded mr-5 ml-n2">
+          <h4 class="font-weight-bold text-uppercase text-center text-titles">Followers</h4>
+          <% @follows_me.each do |friendship| %>
+            <div class="d-flex w-100 text-sidebar pb-3 pt-2">
+              <%= picture?(friendship.follower) %>
+              <div class="post-content ml-3">
+                <li class="d-flex flex-row">
+                  <div class="user-info mt-2">
+                    <%=link_to friendship.follower.fullname, user_path(friendship.follower)%><br>
+                    <small class="text-sidebar">@<%= friendship.follower.username %></small>
+                  </div>
+                  <div class="mt-3 ml-2">
+                    <%= am_i_following?(@yet_to_follow, friendship.follower) %>
+                  </div>
+                </li>
+              </div>
+            </div>            
+          <% end %>
+        </div>       
+      </div>
+    </div>
+  </div>
+</div>

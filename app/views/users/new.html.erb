@@ -11,6 +11,8 @@
     </div>
   </nav>
 
+  <%= render partial: 'layouts/errors' %>
+
   <div class="container d-flex justify-content-center mt-5 pt-5">
     <div class="row d-flex align-items-center">
       <%= form_with(model: @user) do |form| %>
