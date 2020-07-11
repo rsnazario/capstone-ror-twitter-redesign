@@ -1,0 +1,34 @@
+<div class="overflow-hidden">
+  <div class="row">
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col">
+      <%= render 'layouts/navbar' %>
+
+      <div class="row">
+        <div class="col m-0 p-0 ">
+          <div class="m-5">
+            <%= form_for "", url: users_path, role: "search", method: :get do %>
+              <%= text_field_tag :search, @search_term, placeholder: "Search..." %>
+            <% end %>
+          </div>
+              
+          <div class="bg-white mt-5 ml-5 mr-3">
+            <% @users.each do |user| %>
+
+              <div class="d-flex w-100 text-sidebar pb-3 pt-2">
+                <%= picture?(user) %>
+                <div class="post-content ml-3 mt-2">
+                  <h5 class="text-titles"> <%= link_to user.fullname, user_path(user), class:"text-titles font-weight-bold" %> </h5>
+                  <small>@<%= user.username %></small> 
+                </div>
+              </div>
+
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="overflow-hidden">
+  <div class="row">
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col">
+      <%= render 'layouts/navbar' %>
+
+      <div class="row">
+        <div class="col-9 m-0 p-0 ">
+          <div>
+            <% unless @user[:coverImage].nil? %>
+              <%= image_tag @user.coverImage.standard.url, class: 'photo-cover' %>
+            <% else %>
+              <%= image_tag 'default.png', class: 'photo-cover' %>
+            <% end %>
+          </div>
+          <div class="bg-white mt-5 ml-3 mr-3">
+          <%= render 'own-posts' %>
+          </div>
+
+        </div>
+
+        <div class="col">
+          <%= render 'profile' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

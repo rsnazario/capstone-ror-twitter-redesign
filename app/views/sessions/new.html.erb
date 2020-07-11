@@ -1,0 +1,24 @@
+<nav class="overflow-hidden mb-5">
+    <div class="row d-flex justify-content-between bg-primary ">
+      <div class="first-box ml-4 mt-1">
+        <h2 class="text-white font-weight-bold"> THOUGHTS </h2>
+      </div>
+    
+      <div class="second-box mr-4">
+        <%= link_to 'Create Account', new_user_path, class:'btn btn-light text-primary mt-2 mb-2 font-weight-bold'%>
+      </div>
+    </div>
+  </nav>
+
+  <%= render partial: 'layouts/errors' %>
+  <div class="container mt-5 pt-5 d-flex justify-content-center align-items-center ">
+
+  <%= form_with(url: sessions_path) do |form| %>
+    <div class="text mb-3">
+    <%= form.label :username, 'username: ' %> <br>
+    <%= form.text_field(:username) %> <br/></div>
+    <div class="d-flex justify-content-center">
+      <%= form.submit :Login, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

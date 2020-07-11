@@ -1,0 +1,15 @@
+<div class="bg-white mt-4 ml-3 mr-3 p-2">
+  <h5 class="text-titles mb-3 ml-2 mr-2 pb-3 border-bottom border-grey">Shared Opinions </h5>
+  <% if @user == @c %>  
+    <%= render 'show-form' %>
+  <% end %>
+  <% @posts.each do |tweet| %>
+    <div class="d-flex w-100 text-sidebar pb-3 pt-2">
+      <%= picture?(@user) %>
+      <div class="post-content ml-3 mt-2">
+        <h5 class="text-titles"> <%= link_to tweet.author.fullname, user_path(tweet.author), class:"text-titles font-weight-bold" %> </h5>
+        <p class="text-lightgrey"> <%= tweet.text %> </p>
+      </div>
+    </div>
+  <% end %>
+</div>
